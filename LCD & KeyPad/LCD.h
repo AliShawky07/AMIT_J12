@@ -23,6 +23,8 @@ void LCD_WriteChar(uint8 data);
 
 void LCD_GoTo(uint8 row, uint8 col);
 
+void LCD_WriteInteger(sint32 intgr);
+
 void LCD_WriteString(uint8* str);
 
 void LCD_Clear(void);

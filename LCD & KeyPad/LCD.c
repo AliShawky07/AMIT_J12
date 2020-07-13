@@ -117,6 +117,30 @@ void LCD_WriteString(uint8* str)
 	}
 }
 
+void LCD_WriteInteger(sint32 intgr)
+{
+
+	sint32 y = 1;
+
+	if(intgr < 0)
+	{
+		LCD_WriteChar('-');
+		intgr *= -1;
+	}
+
+	while(intgr > 0)
+	{
+		y = ((y*10) + (intgr%10));
+		intgr /= 10;
+	}
+
+	while(y > 1 )
+	{
+		LCD_WriteChar(((y%10)+48));
+		y /= 10;
+	}
+}
+
 void LCD_GoTo(uint8 row, uint8 col)
 {
 	uint8 pos[2] = {0x80 , 0xC0};
